@@ -1,0 +1,213 @@
+/*Estilo de la pagina de pinterest*/
+*{ /* Selector universal*/
+    margin: 0;
+    padding: 0;
+    border: box; 
+ }
+ body{
+     background-color: whitesmoke; 
+     font-family: sans-serif;
+     font-weight: bold;
+ }
+ header nav{
+     width: calc(100% - 80px); /* Reduce el ancho del nav para no superponer la barra lateral */
+    height: 80px;
+    font-size: 16px;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0; /* Asegúrate de que esté anclado arriba */
+    left: 80px; /* Deja espacio para la barra lateral */
+    z-index: 1;
+    padding-right: 20px; /* Espaciado a la derecha */
+ }
+ .search{
+    flex-grow: 1;
+    height: 48px;
+    background-color: #e9e9e9;
+    border-radius: 30px;
+    margin-left: 20px; /* Espaciado desde la barra lateral */
+    margin-right: 20px;
+}
+.search:hover{
+    background-color: #e1e1e1;
+
+}
+.search:focus-within{
+    border: 4px solid #7fc1ff;
+}
+.barra{
+    display: flex;
+    align-items: center;
+    height: 48px;
+}
+#lupa{
+    padding: 13px;
+    color: #767676;
+    font-size: 20px;
+}
+.barra input{
+    border: none;
+    background-color: inherit;
+    padding: 0px 8px 0px 0px;
+    font-size: 16px;
+    flex-grow: 1;
+    outline: none;
+}
+.right-items span{
+    padding: 8px;
+    color: #767676;
+    font-size: 28px;
+}
+.right-items span:hover{
+    background-color: #e9e9e9;
+    border-radius: 150px;
+    cursor: pointer;
+}
+.contenido {
+    display: flex;
+    justify-content: flex-end; /* Envía las imágenes hacia la derecha */
+    margin-top: 80px;
+    padding-right: 20px; /* Espaciado opcional desde la derecha */
+}
+
+.imagenes {
+    columns: 4 240px;
+    column-gap: 15px;
+    margin: auto;
+    display: block; /* Necesario para conservar el diseño de columnas */
+}
+.card-images{
+    position: relative;
+    padding: 3px;
+}
+.card-images img{
+    border-radius: 15px;
+    min-width: 240px;
+    max-width: 240px;
+}
+.card-images:hover>:first-child{
+    filter: brightness(60%);
+}
+.card-images:hover > *{
+    visibility: visible;
+    display: inline;
+}
+.button{
+    position: absolute;
+    left: 45%;
+    top: 5%;
+    padding: 13px 15px;
+    background-color: #e60023;
+    border-radius: 30px;
+    border: none;
+    visibility: hidden;
+}
+.button a{
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+}
+.oculto1{
+    position: absolute;
+    left: 65%;
+    bottom:20px;
+    background-color: white;
+    font-size: 30px;
+    border-radius: 50px;
+    color: black;
+    font-weight: bold;
+    padding: 4px;
+    visibility: hidden;
+    display: none;
+}
+.oculto2{
+    position: absolute;
+    left: 45%;
+    bottom:20px;
+    background-color: white;
+    font-size: 30px;
+    border-radius: 50px;
+    color: black;
+    font-weight: bold;
+    padding: 4px;
+    visibility: hidden;
+    display: none;
+}
+
+/* Estilo general del sidebar */
+.sidebar {
+    position: fixed; /* Barra fija */
+    top: 0;
+    left: 0;
+    width: 80px; /* Ancho fijo */
+    height: 100vh; /* Altura completa de la ventana */
+    background-color: white; /* Fondo blanco */
+    display: flex;
+    flex-direction: column; /* Alineación vertical */
+    align-items: center; /* Centra horizontalmente los íconos */
+    padding: 20px 0;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    z-index: 2;
+}
+
+/* Estilo de cada ícono */
+.icon {
+    margin: 15px 0; /* Espaciado entre íconos */
+    position: relative; /* Necesario para la posición del badge */
+}
+
+.icon img {
+    width: 40px; /* Tamaño de los íconos */
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.2s ease; /* Efecto de hover */
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+    background-color: white; /* Fondo blanco opcional */
+    border-radius: 50%; /* Hace que el ícono sea circular */
+    padding: 10px; /* Espaciado interno */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    cursor: pointer; /* Cambia el cursor al pasar sobre él */
+}
+
+.icon:hover {
+    transform: scale(1.1); /* Aumenta el tamaño al pasar el mouse */
+    background-color: #e9e9e9; /* Color de fondo al pasar el mouse */
+    border-radius: 50%;
+}
+
+/* Estilo para el badge de notificaciones */
+.notification .badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: #e60023; /* Rojo de Pinterest */
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+.set{
+    position: fixed; /* Fija el elemento en la pantalla */
+    bottom: 20px; /* Espacio desde la parte inferior */
+    left: 20px; /* Espacio desde la parte izquierda */
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+    background-color: white; /* Fondo blanco opcional */
+    border-radius: 50%; /* Hace que el ícono sea circular */
+    padding: 10px; /* Espaciado interno */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    cursor: pointer; /* Cambia el cursor al pasar sobre él */
+}
+.set{
+    background-color: #e9e9e9; /* Color de fondo al pasar el mouse */
+}
